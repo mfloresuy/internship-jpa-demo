@@ -12,5 +12,5 @@ public interface MessageService {
 
 	List<MessageDTO> getUserMessages(Long userId);
 
-
+	List<MessageDTO> getUserFeed(long userId);
 }

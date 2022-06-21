@@ -38,7 +38,6 @@ public class MessageServiceImpl implements MessageService {
 				.orElseThrow(() -> new NotFoundException("User " + userId + " not found"));
 		Message message = Utils.mapDTOToMessage(messageDTO);
 		message.setUser(user);
-		//message.setCreatedAt(LocalDateTime.now());
 		Message savedMessage = messageRepository.save(message);
 		return Utils.mapMessageToDTO(savedMessage);
 	}
@@ -51,6 +50,13 @@ public class MessageServiceImpl implements MessageService {
 	@Override
 	public List<MessageDTO> getUserMessages(Long userId) {
 		return messageRepository.findMessageByUserId(userId).stream()
+				.map(Utils::mapMessageToDTO)
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public List<MessageDTO> getUserFeed(long userId) {
+		return messageRepository.findMessageFeed(userId).stream()
 				.map(Utils::mapMessageToDTO)
 				.collect(Collectors.toList());
 	}

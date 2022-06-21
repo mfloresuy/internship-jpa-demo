@@ -27,6 +27,11 @@ public class MessageController {
 		return messageService.getUserMessages(userId);
 	}
 
+	@GetMapping("/users/{userId}/feed")
+	public List<MessageDTO> getFeed(@PathVariable("userId") long userId) {
+		return messageService.getUserFeed(userId);
+	}
+
 	@DeleteMapping("/messages/{id}")
 	public void deleteMessage(@PathVariable("id") long id) {
 		messageService.deleteMessage(id);
