@@ -11,7 +11,7 @@ spring:
       hibernate:
         default_schema: demo
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     generate-ddl: true
     database-platform: org.hibernate.dialect.PostgreSQL94Dialect
     show-sql: true
