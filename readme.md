@@ -8,3 +8,6 @@ docker run -p 5432:5432 --name postgress -e POSTGRES_PASSWORD=1234 -e POSTGRES_U
 ```
 POSTGRES_USER es el usuario con el que nos vamos a conectar
 POSTGRES_PASSWORD es el password
+
+## Configurar Datasource en Intellij
+![Intellij datasource](images/img.png)
